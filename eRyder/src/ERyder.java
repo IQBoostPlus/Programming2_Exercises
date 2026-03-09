@@ -1,8 +1,8 @@
 public class ERyder {
     private final String bikeID;
     private int batteryLevel;
-    private final boolean isAvailable;
-    private final double kmDriven;
+    private boolean isAvailable;
+    private double kmDriven;
 
     public void ride(){
         if (isAvailable && batteryLevel > 0){
