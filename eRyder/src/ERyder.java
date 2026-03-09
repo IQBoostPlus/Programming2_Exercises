@@ -18,23 +18,19 @@ public class ERyder {
         System.out.println("Is Available: " + isAvailable);
         System.out.println("Kilometers Driven: " + kmDriven);
     }
-    private int setBatteryLevel(int batteryLevel){
+    public ERyder(){
+        this.bikeID = "BK000001";
+        this.batteryLevel = 100;
+        this.isAvailable = true;
+        this.kmDriven = 0;
+    }
+    public ERyder(String bikeID, int batteryLevel, boolean isAvailable, double kmDriven){
+        this.bikeID = bikeID;
         if (batteryLevel < 0 || batteryLevel > 100) {
             System.out.println("Invalid battery level. It should between 0 and 100.");
             this.batteryLevel=0;
         }
         this.batteryLevel = batteryLevel;
-        return this.batteryLevel;
-    }
-    public ERyder(){
-        this.bikeID = "BK000";
-        this.batteryLevel = 0;
-        this.isAvailable = false;
-        this.kmDriven = 0;
-    }
-    public ERyder(String bikeID, int batteryLevel, boolean isAvailable, double kmDriven){
-        this.bikeID = bikeID;
-        this.setBatteryLevel(batteryLevel);
         this.isAvailable = isAvailable;
         this.kmDriven = kmDriven;
     }

@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) throws Exception {
-        ERyder bike0=new ERyder();
-        bike0.printBikeDetails();
-        ERyder bike1=new ERyder("BK001", 66, true, 1.5);
-        bike1.ride();
-        bike1.printBikeDetails();
+        ERyder bikeDefault=new ERyder();
+        bikeDefault.printBikeDetails();
+        ERyder bikeCreated=new ERyder("BK000002", 66, true, 1.5);
+        bikeCreated.ride();
+        bikeCreated.printBikeDetails();
     }
 }
