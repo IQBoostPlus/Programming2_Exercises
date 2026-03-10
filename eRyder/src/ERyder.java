@@ -1,5 +1,5 @@
 public class ERyder {
-    private final static String COMPANY_NAME= "eRyder";
+    private final static String COMPANY_NAME= "ERyder";
     private final static double BASE_FARE=1.0;
     private final static double PER_MINUTE_FARE=0.5;
     private final String LINKED_ACCOUNT;
