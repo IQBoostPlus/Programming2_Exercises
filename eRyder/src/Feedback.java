@@ -20,7 +20,7 @@ public class Feedback{
         return sb;
     }
     private boolean checkFeedbackLength(String feedback){
-        return feedback.length() > 500 ? true : false;
+        return feedback.length() > 500;
     }
     private void createReviewID(String firstName, String lastName, String completefeedback){
         String userName = firstName + lastName;
