@@ -24,10 +24,7 @@ public class Feedback{
     }
     private void createReviewID(String firstName, String lastName, String completefeedback){
         String userName = firstName + lastName;
-        String str1 = userName.substring(2,6);
-        String str2 = completefeedback.substring(10,15);
-        reviewID = str1.toUpperCase() + str2.toLowerCase() + completefeedback.length() + "_" + System.currentTimeMillis();
-        reviewID = reviewID.replace(" ", "");
+        reviewID = feedbackUsingConcatenation(userName.substring(2,6).toUpperCase() , completefeedback.substring(10,15).toLowerCase() , String.valueOf(completefeedback.length()) , "_" , String.valueOf(System.currentTimeMillis())).replace(" ", "");
     }
     @Override
     public String toString() {
