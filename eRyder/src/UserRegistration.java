@@ -69,13 +69,12 @@ public class UserRegistration {
     private boolean analyseEmail(String email){
         if(email.contains("@") && email.contains(".")){
             System.out.println("Email is valid.");
-            return true;
         }
         else{
             System.out.println("Invalid email address. Going back to the start of the registration.");
             registration();
-            return false;
         }
+        return true;
     }
     private boolean analyseAge(LocalDate dob){
         LocalDate currentDate=LocalDate.now();
