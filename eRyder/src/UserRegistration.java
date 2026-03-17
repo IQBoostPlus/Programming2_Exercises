@@ -61,10 +61,9 @@ public class UserRegistration {
         cardStillValid=analyseCardStillValid(cardExpiryDate);
         System.out.println("Please enter your CVV:");
         cvv=input.nextInt();
-        input.nextLine();
+        input.close();
         validCVV=analyseCVV(cvv);
         finalCheckpoint();
-        input.close();
     }
     private boolean analyseEmail(String email){
         if(email.contains("@") && email.contains(".")){
@@ -196,7 +195,7 @@ public class UserRegistration {
     @Override
     public String toString(){
         String cardNumberStr=String.valueOf(cardNumber);
-        String censoredPart=cardNumberStr.substring(cardNumberStr.length()-4).replaceAll(".", "*");
+        String censoredPart=cardNumberStr.substring(4).replaceAll(".", "*");
         String lastFourDigits=cardNumberStr.substring(cardNumberStr.length()-4);
         String censoredNumber=censoredPart+lastFourDigits;
         return "Registration successful! Here are your details:\nUser Type: " + userType + "\nFull Name: " + fullName + "\nEmail Address: " + emailAddress + "\nDate of Birth: " + dateOfBirth + "\nCard Number: " + censoredNumber + "\nCard Provider: " + cardProvider + "\nCard Expiry Date: " + cardExpiryDate;
