@@ -11,3 +11,5 @@
 2026.03.14 Fixed bugs in ERyder-Exercise #5.
 
 2026.03.17 Updated ERyder-Exercise #6.
+
+2026.03.25 Updated ERyder-Exercise #7.
