@@ -40,7 +40,6 @@ public class UserRegistration {
                 break;
             default:
                 System.out.println("Invalid choice. Please enter 1 or 2.");
-                input.close();
                 return;
         }
         System.out.println("Please enter your full name:");
@@ -61,7 +60,6 @@ public class UserRegistration {
         cardStillValid=analyseCardStillValid(cardExpiryDate);
         System.out.println("Please enter your CVV:");
         cvv=input.nextInt();
-        input.close();
         validCVV=analyseCVV(cvv);
         finalCheckpoint();
     }

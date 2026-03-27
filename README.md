@@ -13,3 +13,5 @@
 2026.03.17 Updated ERyder-Exercise #6.
 
 2026.03.25 Updated ERyder-Exercise #7.
+
+2026.03.27 Updated ERyder-Exercise #8.
