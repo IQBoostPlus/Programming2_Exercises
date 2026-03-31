@@ -17,3 +17,5 @@
 2026.03.27 Updated ERyder-Exercise #8.
 
 2026.03.31 Updated ERyder-Exercise #9.1-Refactoring odd codes.
+
+2026.03.31 Updated BracketMatching-Exercise #9.2.
