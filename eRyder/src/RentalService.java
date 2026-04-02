@@ -7,7 +7,7 @@ public class RentalService {
     private BikeService bikeService;
 
     public void startRental(String bikeID, String emailAddress) {
-        boolean bikeReserved = bikeService.reserveBike(bikeID);
+        boolean bikeReserved = bikeService.reserveBike(bikeID, emailAddress);
         if (bikeReserved) {
             LocalDateTime tripStartTime = LocalDateTime.now();
             ActiveRental activeRental = new ActiveRental(bikeID, emailAddress, tripStartTime);

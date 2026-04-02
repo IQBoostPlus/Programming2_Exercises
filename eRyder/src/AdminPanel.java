@@ -16,7 +16,9 @@ public class AdminPanel {
             System.out.println("3. Remove Registered Users");
             System.out.println("4. Update Registered Users");
             System.out.println("5. Demo the Bike Rental System");
-            System.out.println("6. EXIT");
+            System.out.println("6. View System Logs");
+            System.out.println("7. Manage Pending Bike Requests");
+            System.out.println("8. EXIT");
             int choice = Integer.parseInt(input.nextLine());
             switch (choice) {
                 case 1 -> userService.addNewUsers();
@@ -24,7 +26,21 @@ public class AdminPanel {
                 case 3 -> userService.removeRegisteredUsers();
                 case 4 -> userService.updateRegisteredUsers();
                 case 5 -> simulateRental();
-                case 6 -> System.exit(0);
+                case 6 -> bikeService.getLogsStack().forEach(log -> log.viewSystemLogs());
+                case 7 -> {
+                    System.out.println("1. View Queue");
+                    System.out.println("2. Update Queue");
+                    System.out.println("3. Exit");
+                    int queueChoice;
+                    queueChoice = input.nextInt();
+                    switch(queueChoice){
+                        case 1 -> bikeService.getBikeRequest().forEach(request -> System.out.println(request));
+                        case 2 -> bikeService.getBikeRequest().remove();
+                        case 3 -> System.out.println("Exiting pending bike requests management...");
+                        default -> System.out.println("Invalid choice. Please try again");
+                    }
+                }
+                case 8 -> System.exit(0);
                 default -> System.out.println("Invalid choice. Please try again");
             }
         }
