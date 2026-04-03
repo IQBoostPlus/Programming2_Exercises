@@ -45,7 +45,7 @@ public class AdminPanel {
             }
         }
     }
-    private void simulateRental(){
+    private void simulateRental() {
         System.out.println("Simulating a bike rental...");
         System.out.println("Enter the location to find an available bike:");
         String location = input.nextLine();
@@ -53,11 +53,15 @@ public class AdminPanel {
         if (bikeID != null) {
             System.out.println("Enter your email address to start the rental:");
             String emailAddress = input.nextLine();
-            rentalService.startRental(bikeID, emailAddress);
+            RegisteredUsers testUser = new VIPUser(
+                "Test User", emailAddress, "2000-01-01",
+                4111111111111111L, "Visa", "12/28", 123,
+                "VIP", new String[]{"", "", ""}
+            );
+            rentalService.startRental(bikeID, emailAddress, testUser);
             System.out.println("Rental started successfully!");
             System.out.println("Now ending the rental...");
-            rentalService.endRental(bikeID);
-            System.out.println("Rental ended successfully!");
+            rentalService.endRental(bikeID, testUser); // Polymorphic fare calculation here!
         } else {
             System.out.println("No bikes available at the specified location. Please try again later.");
         }

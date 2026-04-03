@@ -3,10 +3,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public class RentalService {
+    private final double BASE_FARE = 3.0;
     private LinkedList<ActiveRental> activeRentalsList = new LinkedList<>();
     private BikeService bikeService;
-
-    public void startRental(String bikeID, String emailAddress) {
+    public void startRental(String bikeID, String emailAddress, RegisteredUsers user) {
         boolean bikeReserved = bikeService.reserveBike(bikeID, emailAddress);
         if (bikeReserved) {
             LocalDateTime tripStartTime = LocalDateTime.now();
@@ -18,7 +18,7 @@ public class RentalService {
         }
     }
 
-    public void endRental(String bikeID) {
+    public void endRental(String bikeID, RegisteredUsers user) {
         Iterator<ActiveRental> iterator = activeRentalsList.iterator();
         boolean rentalFound = false;
         while (iterator.hasNext()) {
@@ -31,7 +31,9 @@ public class RentalService {
         }
         if (rentalFound) {
             bikeService.releaseBike(bikeID);
-            System.out.println("Your trip has ended. Thank you for riding with us.");
+            double finalFare = user.calculateFare(BASE_FARE);
+            System.out.println("Your trip has ended. Fare: €" + finalFare);
+            System.out.println("Thank you for riding with us.");
         } else {
             System.out.println("No active rental found for bike " + bikeID);
         }

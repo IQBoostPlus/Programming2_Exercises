@@ -73,6 +73,12 @@ public class RegisteredUsers {
         this.userType = userType;
         this.lastThreeTrips = lastThreeTrips;
     }
+    public double calculateFare(double baseFare) {
+        return baseFare;
+    }
+    public void displayUserType(){
+        System.out.println("Regular User");
+    }
     @Override
     public String toString() {
         return "RegisteredUsers:" + "\n" + 

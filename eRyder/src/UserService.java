@@ -56,9 +56,14 @@ public class UserService {
                         .append(", Fare (€): ").append(paidFare).append(", Feedback: ").append(userFeedback);
                 lastThreeTrips[j] = tripInformation.toString();
             }
-            RegisteredUsers registeredUsers = new RegisteredUsers(fullName, emailAddress, dateOfBirth, cardNumber,
-                    cardProvider, cardExpiryDate, cvv, userType, lastThreeTrips);
-            registeredUsersList.add(registeredUsers);
+            RegisteredUsers newUser;
+            if (userType.equalsIgnoreCase("VIP")) {
+                newUser = new VIPUser(fullName, emailAddress, dateOfBirth, cardNumber, cardProvider, cardExpiryDate, cvv, userType, lastThreeTrips);
+            } 
+            else {
+                newUser = new RegularUser(fullName, emailAddress, dateOfBirth, cardNumber, cardProvider, cardExpiryDate, cvv, userType, lastThreeTrips);
+            }
+            registeredUsersList.add(newUser);
         }
     }
 
